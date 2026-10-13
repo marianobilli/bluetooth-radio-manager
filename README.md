@@ -1,13 +1,136 @@
 # Bluetooth Resiliency Tester — PlatformIO
 
-Bluetooth resiliency tester for the **YD-ESP32-23** board. Based on [esp32-hello-world](https://github.com/marianobilli/esp32-hello-world); the starting firmware still flashes the onboard RGB LED in red and blue like a police car light bar.
-
-The firmware alternates three quick red flashes and three quick blue flashes in a continuous loop, using the built-in NeoPixel on GPIO 48 and the `neopixelWrite()` helper provided by the Arduino-ESP32 framework.
+Bluetooth module for the **YD-ESP32-23** board. Based on [esp32-hello-world](https://github.com/marianobilli/esp32-hello-world).
 
 - **Board:** YD-ESP32-23 (ESP32-S3 DevKitC-1 clone)
 - **Flash:** 16 MB
 - **PSRAM:** 8 MB (OPI)
 - **Framework:** Arduino via PlatformIO
+
+<p align="center">
+  <img src="bt_resiliency_tester2.png" alt="Bluetooth resiliency tester PCB, 3D view from the top with four radios, the OLED/encoder UI module and the ESP32-S3 devkit" width="720">
+</p>
+
+---
+
+## Hardware
+
+A carrier PCB that holds **four 2.4 GHz radios**, an **ESP32-S3 devkit**, and an **OLED + rotary encoder UI module**, powered from one or two 5 V USB power banks. Every part is socketed or through-hole, so the board can be hand-soldered and the modules swapped without tools.
+
+| | |
+|---|---|
+| **Board** | 96.5 × 73.2 mm, 2 layers, GND pour on both sides, 4 × M3 mounting holes |
+| **Radios** | 4 slots, each takes an nRF24L01+PA+LNA **or** an Ebyte E01-2G4M27D (same 2×4 pinout) |
+| **MCU** | YD-ESP32-23 (ESP32-S3 DevKitC-1 clone) on 2 × 22-pin sockets |
+| **UI** | 1.3" OLED + EC11 encoder + BACK/CONFIRM buttons module, on a 1×9 socket and M3 standoffs |
+| **Power** | Two 5 V inputs (JST-XH), per-slot 5 V / 3.3 V radio supply select |
+| **Design files** | KiCad 10 project in [`hardware/kicad`](hardware/kicad) |
+
+### Components
+
+| Ref | Part | Role |
+|-----|------|------|
+| M1–M4 | 2×4 female header, 2.54 mm | Radio slots. The module bodies and antennas hang off the top edge of the board |
+| U1 | YD-ESP32-23 on 2 × 1×22 female headers | Controller, drives all four radios over one SPI bus |
+| J1 | UI module on 1×9 female header + 4 × M3 standoffs | 1.3" I²C OLED, EC11 encoder with push, BACK and CONFIRM buttons |
+| U2 | LD1117V33, TO-220, mounted flat (tab down) | Shared 3.3 V rail (`+3V3_RF`) for nRF24 slots, 800 mA |
+| JP1–JP4 | 1×3 pin header + jumper shunt | Selects each radio slot's supply: 5 V or 3.3 V |
+| C3–C6 | 220 µF / 10 V electrolytic | Bulk capacitor per radio slot, for TX current bursts |
+| C7–C10 | 100 nF ceramic | High-frequency decoupling per radio slot |
+| C1, C2 | 470 µF / 10 V electrolytic | Bulk capacitor on each 5 V input |
+| C11, C12 | 10 µF / 16 V electrolytic | LD1117 input / output capacitors |
+| J2, J3 | JST-XH 2-pin | 5 V inputs **A** and **B** (USB-C power bank leads) |
+| MH1–MH4 | M3 holes | Case mounting |
+
+### Radio modules
+
+Both modules share the standard nRF24L01 2×4 pinout (1 GND, 2 VCC, 3 CE, 4 CSN, 5 SCK, 6 MOSI, 7 MISO, 8 IRQ), so either fits any slot.
+
+| | nRF24L01+PA+LNA | Ebyte E01-2G4M27D |
+|---|---|---|
+| Size (without SMA) | 41 × 15.5 mm | 33.4 × 18 mm |
+| Max TX power | ~20 dBm (100 mW) | 27 dBm (500 mW) |
+| VCC range | 1.9–3.6 V | 2.5–5.5 V |
+| TX current | ~115 mA @ 3.3 V (typical) | 390 mA @ 5 V, 490 mA @ 3.3 V |
+| Slot jumper | **3V3** | **5V** |
+
+### Radio supply jumpers
+
+Each slot has its own 3-pin jumper (JP*n* powers M*n*). Fit **one** shunt per slot:
+
+| Shunt | Slot VCC | Use with |
+|-------|----------|----------|
+| top (1-2), `5V` | 5 V straight from the power input | E01-2G4M27D **only** |
+| bottom (2-3), `3V3` | 3.3 V from U2 | nRF24L01+PA+LNA |
+| none | unpowered | safe default |
+
+> **Warning:** a shunt on `5V` with an nRF24L01+PA+LNA in the slot destroys the module (VCC max 3.6 V). Check the jumpers before plugging in power.
+
+### ESP32-S3 pin map
+
+| Function | GPIO | | Function | GPIO |
+|----------|------|-|----------|------|
+| SPI SCK | IO12 | | I²C SDA | IO14 |
+| SPI MOSI | IO11 | | I²C SCL | IO13 |
+| SPI MISO | IO2 | | Encoder A | IO5 |
+| Radio 1 CE / CSN / IRQ | IO7 / IO1 / IO15 | | Encoder B | IO4 |
+| Radio 2 CE / CSN / IRQ | IO9 / IO8 / IO16 | | Encoder push | IO6 |
+| Radio 3 CE / CSN / IRQ | IO17 / IO10 / IO18 | | CONFIRM button | IO21 |
+| Radio 4 CE / CSN / IRQ | IO40 / IO39 / IO41 | | BACK button | IO38 |
+
+The ESP32 devkit is powered from input A through its own 5 V pin. Its onboard 3.3 V regulator also supplies the UI module (`+3V3_SYS`).
+
+### Power budget
+
+| Load (all radios transmitting continuously) | Input A | Input B |
+|---------------------------------------------|---------|---------|
+| 4 × E01-2G4M27D on 5 V | ~0.93 A (2 radios + ESP32) | ~0.78 A (2 radios) |
+| 4 × nRF24L01+PA+LNA on 3.3 V | ~0.15 A (ESP32 only) | ~0.47 A (all 4 radios via U2) |
+
+Estimated runtime from a 10,000 mAh power bank, assuming about 31.5 Wh usable at 5 V after the bank's own conversion losses, with all four radios transmitting non-stop:
+
+| Setup | Total draw at 5 V | Runtime |
+|-------|-------------------|---------|
+| 4 × E01-2G4M27D | ~1.7 A (8.6 W) | **~3.5–4 h** |
+| 4 × nRF24L01+PA+LNA | ~0.6 A (3.1 W) | **~10 h** |
+
+Runtime scales with transmit duty cycle, so bursty tests last proportionally longer.
+
+### Design decisions
+
+**Radios hang off the board edge.** The sockets sit along the top edge and are rotated so each module body and its SMA antenna point away from the board; the enclosure supports them. This keeps the PCB small, keeps the antennas clear of the ground pour and the ESP32, and makes swapping modules easy. The 22.2 mm slot pitch leaves room for the wider (18 mm) E01 in every slot.
+
+**A supply jumper per slot instead of a regulator per slot.** An earlier revision had one buck converter per radio. The E01-2G4M27D, though, accepts 2.5–5.5 V and keeps 3.3 V logic, so it runs straight from the 5 V input, drawing even less current at 5 V than at 3.3 V. Only the nRF24 needs 3.3 V, and at about 115 mA per module one shared linear regulator handles all four. Removing the four buck modules saved about 64 × 35 mm of board. With no shunt fitted a slot stays unpowered, so a freshly built board can't damage a radio.
+
+**A linear regulator, not a buck, for 3.3 V.** The PA/LNA radios amplify whatever noise sits on their supply. An LDO has no switching ripple, needs only two capacitors, and at nRF24 currents dissipates at most about 0.8 W, within what a TO-220 handles without a heatsink. The LD1117V33 (800 mA) leaves headroom for all four slots.
+
+**Using the space under the modules.** The ESP32 devkit and the UI module both sit 11 mm above the board (8.5 mm socket + 2.5 mm header spacer), and that space is used:
+- U2 is bent 90° and lies flat under the OLED half of the UI module, about 4.5 mm tall instead of 19 mm standing.
+- A mounting hole sits under the devkit near its USB end, where plug insertion pushes hardest. Fit that screw before plugging in the devkit.
+- Both footprints' courtyards cover only their sockets, standoffs and the encoder legs; the full module outlines are drawn on the silkscreen.
+
+**Two 5 V inputs.** Input A powers the ESP32 and radio slots 1–2; input B powers slots 3–4 and the 3.3 V regulator. This splits the worst-case E01 load (about 1.7 A) across two power-bank ports, each under about 1 A, and keeps the ESP32's supply separate from the regulator feeding the nRF24s.
+
+**Decoupling at every slot.** The 220 µF + 100 nF capacitors sit right next to each socket, to absorb TX current bursts (up to 490 mA on an E01). A 470 µF capacitor on each input covers cable and power-bank response time.
+
+**Routing.** Two layers, with GND poured on both and also routed as tracks. Power nets (`+5V_*`, `+3V3_*`, `VRF_*`, GND) use 0.6 mm tracks, signals 0.25 mm. The SPI bus is shared by all four radios, each with its own CE, CSN and IRQ lines.
+
+**All through-hole and socketed.** Every part can be hand-soldered, and the ESP32, UI module and radios plug in, so a damaged module is a swap, not a rework.
+
+<p align="center">
+  <img src="bt_resiliency_tester.png" alt="Underside of the PCB with the goat logo on the bottom silkscreen" width="560">
+</p>
+
+### Hardware files
+
+| Path | Contents |
+|------|----------|
+| `hardware/kicad/bt_resiliency_tester.kicad_sch` | Schematic |
+| `hardware/kicad/bt_resiliency_tester.kicad_pcb` | PCB layout |
+| `hardware/kicad/bt_tester_parts.pretty/` | Custom footprints: radio socket, YD-ESP32-23, UI module |
+| `hardware/kicad/bt_tester_parts.3dshapes/` | STEP models plus the Python scripts that generate them (`make_*.py`, `step_writer.py`) |
+
+---
 
 > New to PlatformIO? Start here. This guide walks you through setup, the physical board, and how to build and run your first test.
 
@@ -189,8 +312,11 @@ See [how_to_unit_test.md](how_to_unit_test.md) for a full guide on writing and r
 ├── test/
 │   ├── test_basic/                     # Logic tests — run native and on device
 │   └── test_rgb_led/                   # RGB LED smoke tests — device only
-└── partitions/
-    └── partitions_16MB_psram.csv       # Custom partition table for 16 MB flash
+├── partitions/
+│   └── partitions_16MB_psram.csv       # Custom partition table for 16 MB flash
+├── hardware/
+│   └── kicad/                          # KiCad 10 schematic, PCB, footprints and 3D models
+└── bt_resiliency_tester*.png           # KiCad 3D renders used in this README
 ```
 
 ---

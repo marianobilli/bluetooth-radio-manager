@@ -1,0 +1,1379 @@
+{
+  "board": "C:\\Users\\maria\\github\\marianobilli\\bluetooth-resiliency-tester\\hardware\\kicad\\bt_resiliency_tester.kicad_pcb",
+  "timestamp": "2026-10-13T20:40:02",
+  "total_violations": 136,
+  "violation_counts": {
+    "track_width": 24,
+    "lib_footprint_issues": 4,
+    "text_height": 56,
+    "silk_overlap": 16,
+    "silk_over_copper": 36
+  },
+  "severity_counts": {
+    "error": 24,
+    "warning": 112,
+    "info": 0
+  },
+  "violations": [
+    {
+      "type": "track_width",
+      "severity": "error",
+      "message": "Track width (board setup constraints min width 0.2000 mm; actual 0.1500 mm)",
+      "location": {
+        "x": 64.5039,
+        "y": 65.4296,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "track_width",
+      "severity": "error",
+      "message": "Track width (board setup constraints min width 0.2000 mm; actual 0.1500 mm)",
+      "location": {
+        "x": 66.5502,
+        "y": 63.6558,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "track_width",
+      "severity": "error",
+      "message": "Track width (board setup constraints min width 0.2000 mm; actual 0.1500 mm)",
+      "location": {
+        "x": 66.6331,
+        "y": 63.7387,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "track_width",
+      "severity": "error",
+      "message": "Track width (board setup constraints min width 0.2000 mm; actual 0.1500 mm)",
+      "location": {
+        "x": 64.2014,
+        "y": 65.7321,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "track_width",
+      "severity": "error",
+      "message": "Track width (board setup constraints min width 0.2000 mm; actual 0.1500 mm)",
+      "location": {
+        "x": 94.5563,
+        "y": 15.8972,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "track_width",
+      "severity": "error",
+      "message": "Track width (board setup constraints min width 0.2000 mm; actual 0.1500 mm)",
+      "location": {
+        "x": 41.1502,
+        "y": 93.251,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "track_width",
+      "severity": "error",
+      "message": "Track width (board setup constraints min width 0.2000 mm; actual 0.1500 mm)",
+      "location": {
+        "x": 98.0932,
+        "y": 12.3603,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "track_width",
+      "severity": "error",
+      "message": "Track width (board setup constraints min width 0.2000 mm; actual 0.1500 mm)",
+      "location": {
+        "x": 41.1502,
+        "y": 88.666,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "track_width",
+      "severity": "error",
+      "message": "Track width (board setup constraints min width 0.2000 mm; actual 0.1500 mm)",
+      "location": {
+        "x": 18.006,
+        "y": 14.8702,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "track_width",
+      "severity": "error",
+      "message": "Track width (board setup constraints min width 0.2000 mm; actual 0.1500 mm)",
+      "location": {
+        "x": 18.2062,
+        "y": 14.67,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "track_width",
+      "severity": "error",
+      "message": "Track width (board setup constraints min width 0.2000 mm; actual 0.1500 mm)",
+      "location": {
+        "x": 39.6804,
+        "y": 57.2331,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "track_width",
+      "severity": "error",
+      "message": "Track width (board setup constraints min width 0.2000 mm; actual 0.1500 mm)",
+      "location": {
+        "x": 39.9635,
+        "y": 57.2331,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "track_width",
+      "severity": "error",
+      "message": "Track width (board setup constraints min width 0.2000 mm; actual 0.1500 mm)",
+      "location": {
+        "x": 40.7198,
+        "y": 102.6268,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "track_width",
+      "severity": "error",
+      "message": "Track width (board setup constraints min width 0.2000 mm; actual 0.1500 mm)",
+      "location": {
+        "x": 39.2803,
+        "y": 97.5468,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "track_width",
+      "severity": "error",
+      "message": "Track width (board setup constraints min width 0.2000 mm; actual 0.1500 mm)",
+      "location": {
+        "x": 40.3566,
+        "y": 102.99,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "track_width",
+      "severity": "error",
+      "message": "Track width (board setup constraints min width 0.2000 mm; actual 0.1500 mm)",
+      "location": {
+        "x": 39.6435,
+        "y": 97.91,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "track_width",
+      "severity": "error",
+      "message": "Track width (board setup constraints min width 0.2000 mm; actual 0.1500 mm)",
+      "location": {
+        "x": 73.92,
+        "y": 70.8198,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "track_width",
+      "severity": "error",
+      "message": "Track width (board setup constraints min width 0.2000 mm; actual 0.1500 mm)",
+      "location": {
+        "x": 90.7998,
+        "y": 71.0932,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "track_width",
+      "severity": "error",
+      "message": "Track width (board setup constraints min width 0.2000 mm; actual 0.1500 mm)",
+      "location": {
+        "x": 90.1368,
+        "y": 70.4302,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "track_width",
+      "severity": "error",
+      "message": "Track width (board setup constraints min width 0.2000 mm; actual 0.1500 mm)",
+      "location": {
+        "x": 76.5141,
+        "y": 70.8198,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "track_width",
+      "severity": "error",
+      "message": "Track width (board setup constraints min width 0.2000 mm; actual 0.1500 mm)",
+      "location": {
+        "x": 16.802,
+        "y": 9.3898,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "track_width",
+      "severity": "error",
+      "message": "Track width (board setup constraints min width 0.2000 mm; actual 0.1500 mm)",
+      "location": {
+        "x": 18.8068,
+        "y": 9.3898,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "track_width",
+      "severity": "error",
+      "message": "Track width (board setup constraints min width 0.2000 mm; actual 0.1500 mm)",
+      "location": {
+        "x": 40.7198,
+        "y": 74.6868,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "track_width",
+      "severity": "error",
+      "message": "Track width (board setup constraints min width 0.2000 mm; actual 0.1500 mm)",
+      "location": {
+        "x": 40.3566,
+        "y": 75.05,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "Footprint 'MountingHole_3.2mm' not found in library 'MountingHole'",
+      "location": {
+        "x": 6.0,
+        "y": 114.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "Footprint 'MountingHole_3.2mm' not found in library 'MountingHole'",
+      "location": {
+        "x": 120.0,
+        "y": 19.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "Footprint 'MountingHole_3.2mm' not found in library 'MountingHole'",
+      "location": {
+        "x": 40.0,
+        "y": 19.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "lib_footprint_issues",
+      "severity": "warning",
+      "message": "Footprint 'MountingHole_3.2mm' not found in library 'MountingHole'",
+      "location": {
+        "x": 154.0,
+        "y": 114.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)",
+      "location": {
+        "x": 17.5,
+        "y": 8.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)",
+      "location": {
+        "x": 17.5,
+        "y": 10.54,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)",
+      "location": {
+        "x": 17.5,
+        "y": 13.08,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)",
+      "location": {
+        "x": 17.5,
+        "y": 15.62,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+      "location": {
+        "x": 20.27,
+        "y": 5.4,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)",
+      "location": {
+        "x": 23.04,
+        "y": 8.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)",
+      "location": {
+        "x": 23.04,
+        "y": 10.54,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)",
+      "location": {
+        "x": 23.04,
+        "y": 13.08,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)",
+      "location": {
+        "x": 23.04,
+        "y": 15.62,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)",
+      "location": {
+        "x": 137.5,
+        "y": 8.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)",
+      "location": {
+        "x": 137.5,
+        "y": 10.54,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)",
+      "location": {
+        "x": 137.5,
+        "y": 13.08,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)",
+      "location": {
+        "x": 137.5,
+        "y": 15.62,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+      "location": {
+        "x": 140.27,
+        "y": 5.4,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)",
+      "location": {
+        "x": 143.04,
+        "y": 8.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)",
+      "location": {
+        "x": 143.04,
+        "y": 10.54,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)",
+      "location": {
+        "x": 143.04,
+        "y": 13.08,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)",
+      "location": {
+        "x": 143.04,
+        "y": 15.62,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)",
+      "location": {
+        "x": 97.5,
+        "y": 8.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)",
+      "location": {
+        "x": 97.5,
+        "y": 10.54,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)",
+      "location": {
+        "x": 97.5,
+        "y": 13.08,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)",
+      "location": {
+        "x": 97.5,
+        "y": 15.62,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+      "location": {
+        "x": 100.27,
+        "y": 5.4,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)",
+      "location": {
+        "x": 103.04,
+        "y": 8.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)",
+      "location": {
+        "x": 103.04,
+        "y": 10.54,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)",
+      "location": {
+        "x": 103.04,
+        "y": 13.08,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)",
+      "location": {
+        "x": 103.04,
+        "y": 15.62,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+      "location": {
+        "x": 130.6,
+        "y": 40.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+      "location": {
+        "x": 130.6,
+        "y": 48.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+      "location": {
+        "x": 140.0,
+        "y": 44.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+      "location": {
+        "x": 149.4,
+        "y": 40.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+      "location": {
+        "x": 149.4,
+        "y": 48.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+      "location": {
+        "x": 10.6,
+        "y": 40.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+      "location": {
+        "x": 10.6,
+        "y": 48.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+      "location": {
+        "x": 20.0,
+        "y": 44.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+      "location": {
+        "x": 29.4,
+        "y": 40.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+      "location": {
+        "x": 29.4,
+        "y": 48.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+      "location": {
+        "x": 50.6,
+        "y": 40.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+      "location": {
+        "x": 50.6,
+        "y": 48.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+      "location": {
+        "x": 60.0,
+        "y": 44.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+      "location": {
+        "x": 69.4,
+        "y": 40.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+      "location": {
+        "x": 69.4,
+        "y": 48.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+      "location": {
+        "x": 90.6,
+        "y": 40.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+      "location": {
+        "x": 90.6,
+        "y": 48.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+      "location": {
+        "x": 100.0,
+        "y": 44.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+      "location": {
+        "x": 109.4,
+        "y": 40.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+      "location": {
+        "x": 109.4,
+        "y": 48.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)",
+      "location": {
+        "x": 57.5,
+        "y": 8.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)",
+      "location": {
+        "x": 57.5,
+        "y": 10.54,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)",
+      "location": {
+        "x": 57.5,
+        "y": 13.08,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)",
+      "location": {
+        "x": 57.5,
+        "y": 15.62,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+      "location": {
+        "x": 60.27,
+        "y": 5.4,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)",
+      "location": {
+        "x": 63.04,
+        "y": 8.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)",
+      "location": {
+        "x": 63.04,
+        "y": 10.54,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)",
+      "location": {
+        "x": 63.04,
+        "y": 13.08,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "text_height",
+      "severity": "warning",
+      "message": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.6000 mm)",
+      "location": {
+        "x": 63.04,
+        "y": 15.62,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_overlap",
+      "severity": "warning",
+      "message": "Silkscreen clearance",
+      "location": {
+        "x": 29.4,
+        "y": 40.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_overlap",
+      "severity": "warning",
+      "message": "Silkscreen clearance",
+      "location": {
+        "x": 29.4,
+        "y": 48.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_overlap",
+      "severity": "warning",
+      "message": "Silkscreen clearance",
+      "location": {
+        "x": 130.6,
+        "y": 48.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_overlap",
+      "severity": "warning",
+      "message": "Silkscreen clearance",
+      "location": {
+        "x": 131.5,
+        "y": 39.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_overlap",
+      "severity": "warning",
+      "message": "Silkscreen clearance",
+      "location": {
+        "x": 149.4,
+        "y": 48.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_overlap",
+      "severity": "warning",
+      "message": "Silkscreen clearance",
+      "location": {
+        "x": 149.4,
+        "y": 40.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_overlap",
+      "severity": "warning",
+      "message": "Silkscreen clearance",
+      "location": {
+        "x": 109.4,
+        "y": 48.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_overlap",
+      "severity": "warning",
+      "message": "Silkscreen clearance",
+      "location": {
+        "x": 109.4,
+        "y": 40.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_overlap",
+      "severity": "warning",
+      "message": "Silkscreen clearance",
+      "location": {
+        "x": 90.6,
+        "y": 40.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_overlap",
+      "severity": "warning",
+      "message": "Silkscreen clearance",
+      "location": {
+        "x": 90.6,
+        "y": 48.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_overlap",
+      "severity": "warning",
+      "message": "Silkscreen clearance",
+      "location": {
+        "x": 69.4,
+        "y": 48.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_overlap",
+      "severity": "warning",
+      "message": "Silkscreen clearance",
+      "location": {
+        "x": 51.5,
+        "y": 39.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_overlap",
+      "severity": "warning",
+      "message": "Silkscreen clearance",
+      "location": {
+        "x": 10.6,
+        "y": 40.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_overlap",
+      "severity": "warning",
+      "message": "Silkscreen clearance",
+      "location": {
+        "x": 10.6,
+        "y": 48.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_overlap",
+      "severity": "warning",
+      "message": "Silkscreen clearance",
+      "location": {
+        "x": 51.5,
+        "y": 39.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_overlap",
+      "severity": "warning",
+      "message": "Silkscreen clearance",
+      "location": {
+        "x": 51.5,
+        "y": 39.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 40.0,
+        "y": 19.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 29.4,
+        "y": 40.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 29.4,
+        "y": 48.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 11.5,
+        "y": 39.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 11.5,
+        "y": 39.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 120.0,
+        "y": 19.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 154.0,
+        "y": 114.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 131.5,
+        "y": 39.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 131.5,
+        "y": 39.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 130.6,
+        "y": 48.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 130.6,
+        "y": 40.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 131.5,
+        "y": 39.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 131.5,
+        "y": 39.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 149.4,
+        "y": 48.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 149.4,
+        "y": 40.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 91.5,
+        "y": 39.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 91.5,
+        "y": 39.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 91.5,
+        "y": 39.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 91.5,
+        "y": 39.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 109.4,
+        "y": 48.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 109.4,
+        "y": 40.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 90.6,
+        "y": 40.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 90.6,
+        "y": 48.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 51.5,
+        "y": 39.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 51.5,
+        "y": 39.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 69.4,
+        "y": 40.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 69.4,
+        "y": 48.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 6.0,
+        "y": 114.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 10.6,
+        "y": 40.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 11.5,
+        "y": 39.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 11.5,
+        "y": 39.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 10.6,
+        "y": 48.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 51.5,
+        "y": 39.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 50.6,
+        "y": 40.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 51.5,
+        "y": 39.0,
+        "unit": "mm"
+      }
+    },
+    {
+      "type": "silk_over_copper",
+      "severity": "warning",
+      "message": "Silkscreen clipped by solder mask",
+      "location": {
+        "x": 50.6,
+        "y": 48.0,
+        "unit": "mm"
+      }
+    }
+  ]
+}
