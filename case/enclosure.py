@@ -1,4 +1,4 @@
-"""Parametric enclosure for the Bluetooth resiliency tester.
+"""Parametric enclosure for the Bluetooth radio manager.
 
 Run:    python case/enclosure.py
 View:   open the OCP CAD Viewer panel in VS Code (Ctrl+K V) before running;
@@ -55,7 +55,7 @@ from build123d import (
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parent
-KICAD_PCB = REPO / "hardware" / "kicad" / "bt_resiliency_tester.kicad_pcb"
+KICAD_PCB = REPO / "hardware" / "kicad" / "bt_radio_manager.kicad_pcb"
 KICAD_CLI = Path(r"C:\Program Files\KiCad\10.0\bin\kicad-cli.exe")
 PCB_STEP = HERE / "ref" / "pcb.step"
 MODELS_DIR = REPO / "hardware" / "kicad" / "bt_tester_parts.3dshapes"

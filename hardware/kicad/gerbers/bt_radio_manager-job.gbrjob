@@ -5,12 +5,12 @@
       "Application": "Pcbnew",
       "Version": "10.0.6"
     },
-    "CreationDate": "2026-10-14T11:31:20+02:00"
+    "CreationDate": "2026-10-14T17:05:34+02:00"
   },
   "GeneralSpecs": {
     "ProjectId": {
-      "Name": "bt_resiliency_tester",
-      "GUID": "62745f72-6573-4696-9c69-656e63795f74",
+      "Name": "bt_radio_manager",
+      "GUID": "62745f72-6164-4696-9f5f-6d616e616765",
       "Revision": "rev?"
     },
     "Size": {
@@ -34,47 +34,47 @@
   ],
   "FilesAttributes": [
     {
-      "Path": "bt_resiliency_tester-F_Cu.gtl",
+      "Path": "bt_radio_manager-F_Cu.gtl",
       "FileFunction": "Copper,L1,Top",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "bt_resiliency_tester-B_Cu.gbl",
+      "Path": "bt_radio_manager-B_Cu.gbl",
       "FileFunction": "Copper,L2,Bot",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "bt_resiliency_tester-F_Paste.gtp",
+      "Path": "bt_radio_manager-F_Paste.gtp",
       "FileFunction": "SolderPaste,Top",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "bt_resiliency_tester-B_Paste.gbp",
+      "Path": "bt_radio_manager-B_Paste.gbp",
       "FileFunction": "SolderPaste,Bot",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "bt_resiliency_tester-F_Silkscreen.gto",
+      "Path": "bt_radio_manager-F_Silkscreen.gto",
       "FileFunction": "Legend,Top",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "bt_resiliency_tester-B_Silkscreen.gbo",
+      "Path": "bt_radio_manager-B_Silkscreen.gbo",
       "FileFunction": "Legend,Bot",
       "FilePolarity": "Positive"
     },
     {
-      "Path": "bt_resiliency_tester-F_Mask.gts",
+      "Path": "bt_radio_manager-F_Mask.gts",
       "FileFunction": "SolderMask,Top",
       "FilePolarity": "Negative"
     },
     {
-      "Path": "bt_resiliency_tester-B_Mask.gbs",
+      "Path": "bt_radio_manager-B_Mask.gbs",
       "FileFunction": "SolderMask,Bot",
       "FilePolarity": "Negative"
     },
     {
-      "Path": "bt_resiliency_tester-Edge_Cuts.gm1",
+      "Path": "bt_radio_manager-Edge_Cuts.gm1",
       "FileFunction": "Profile",
       "FilePolarity": "Positive"
     }

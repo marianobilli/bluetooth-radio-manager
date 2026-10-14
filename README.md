@@ -1,4 +1,4 @@
-# Bluetooth Resiliency Tester — PlatformIO
+# Bluetooth Radio Manager — PlatformIO
 
 Bluetooth module for the **YD-ESP32-23** board. Based on [esp32-hello-world](https://github.com/marianobilli/esp32-hello-world).
 
@@ -8,7 +8,7 @@ Bluetooth module for the **YD-ESP32-23** board. Based on [esp32-hello-world](htt
 - **Framework:** Arduino via PlatformIO
 
 <p align="center">
-  <img src="images/board-with-case.png" alt="The assembled tester in its 3D-printed enclosure: lid snapped on, USB-C power sockets in the front wall, four antennas out the back" width="620">
+  <img src="images/board-with-case.png" alt="The assembled radio manager in its 3D-printed enclosure: lid snapped on, USB-C power sockets in the front wall, four antennas out the back" width="620">
 </p>
 
 ---
@@ -18,7 +18,7 @@ Bluetooth module for the **YD-ESP32-23** board. Based on [esp32-hello-world](htt
 A carrier PCB that holds **four 2.4 GHz radios**, an **ESP32-S3 devkit**, and an **OLED + rotary encoder UI module**, powered from one or two 5 V USB power banks. Every part is socketed or through-hole, so the board can be hand-soldered and the modules swapped without tools.
 
 <p align="center">
-  <img src="images/case.png" alt="Bluetooth resiliency tester PCB, 3D view from the top with four radios, the OLED/encoder UI module and the ESP32-S3 devkit" width="720">
+  <img src="images/case.png" alt="Bluetooth radio manager PCB, 3D view from the top with four radios, the OLED/encoder UI module and the ESP32-S3 devkit" width="720">
 </p>
 
 | | |
@@ -125,15 +125,15 @@ Runtime scales with transmit duty cycle, so bursty tests last proportionally lon
 **All through-hole and socketed.** Every part can be hand-soldered, and the ESP32, UI module and radios plug in, so a damaged module is a swap, not a rework.
 
 <p align="center">
-  <img src="bt_resiliency_tester.png" alt="Underside of the PCB with the goat logo on the bottom silkscreen" width="560">
+  <img src="images/board-underside.png" alt="Underside of the PCB with the goat logo on the bottom silkscreen" width="560">
 </p>
 
 ### Hardware files
 
 | Path | Contents |
 |------|----------|
-| `hardware/kicad/bt_resiliency_tester.kicad_sch` | Schematic |
-| `hardware/kicad/bt_resiliency_tester.kicad_pcb` | PCB layout |
+| `hardware/kicad/bt_radio_manager.kicad_sch` | Schematic |
+| `hardware/kicad/bt_radio_manager.kicad_pcb` | PCB layout |
 | `hardware/kicad/bt_tester_parts.pretty/` | Custom footprints: radio socket, YD-ESP32-23, UI module |
 | `hardware/kicad/bt_tester_parts.3dshapes/` | STEP models plus the Python scripts that generate them (`make_*.py`, `step_writer.py`) |
 
@@ -341,8 +341,7 @@ See [how_to_unit_test.md](how_to_unit_test.md) for a full guide on writing and r
 │   └── kicad/                          # KiCad 10 schematic, PCB, footprints and 3D models
 ├── case/
 │   └── enclosure.py                    # Parametric 3D-printed enclosure (build123d)
-├── images/                             # Renders used in this README
-└── bt_resiliency_tester*.png           # Older KiCad 3D renders
+└── images/                             # Renders used in this README
 ```
 
 ---

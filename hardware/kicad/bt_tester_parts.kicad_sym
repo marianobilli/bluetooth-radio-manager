@@ -11,7 +11,7 @@
     (property "Value" "YD-ESP32-23" (at 15.24 38.1 0) (effects (font (size 1.27 1.27)) (justify right bottom)))
     (property "Footprint" "bt_tester_parts:YD-ESP32-23" (at 0 -42 0) (effects (font (size 1.27 1.27)) hide))
     (property "Datasheet" "https://www.espboards.dev/esp32/yd-esp32-s3/" (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
-    (property "Description" "YD-ESP32-23 (ESP32-S3 DevKitC-1 clone) for the Bluetooth resiliency tester. Pads = vendor P1 (1-22) / P2 (23-44) headers; names show the BT-tester net on each GPIO." (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Description" "YD-ESP32-23 (ESP32-S3 DevKitC-1 clone) for the Bluetooth radio manager. Pads = vendor P1 (1-22) / P2 (23-44) headers; names show the BT-tester net on each GPIO." (at 0 0 0) (effects (font (size 1.27 1.27)) hide))
     (symbol "YD-ESP32-23_0_1"
       (rectangle (start -15.24 34.29) (end 15.24 -34.29) (stroke (width 0.254) (type default)) (fill (type background)))
     )
