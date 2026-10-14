@@ -28,11 +28,11 @@ COLORS = {
     "gold":   (0.86, 0.70, 0.30),
     "brass":  (0.80, 0.65, 0.30),
     "silver": (0.60, 0.61, 0.63),
-    "glass":  (0.16, 0.16, 0.18),
+    "glass":  (0.02, 0.02, 0.03),   # OLED display, black
     "screen": (0.02, 0.02, 0.03),
     "flex":   (0.70, 0.45, 0.12),
     "white":  (0.92, 0.92, 0.90),
-    "knob":   (0.09, 0.09, 0.10),
+    "knob":   (0.02, 0.02, 0.03),   # encoder knob, black
 }
 
 m = Model("UI_module_OLED_EC11", COLORS)

@@ -28,7 +28,7 @@ SMA_Y = YC              # SMA jack on the module centre line
 SMA_AXIS_Z = TOP + 3.2
 
 COLORS = {
-    "pcb":    (0.05, 0.05, 0.06),
+    "pcb":    (0.06, 0.36, 0.16),   # module PCB, green
     "black":  (0.08, 0.08, 0.08),
     "gold":   (0.86, 0.70, 0.30),
     "silver": (0.70, 0.71, 0.73),

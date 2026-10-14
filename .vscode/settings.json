@@ -1,0 +1,5 @@
+{
+    // PowerShell needs the call operator before a quoted exe path,
+    // otherwise the OCP CAD Viewer backend fails to start.
+    "OcpCadViewer.advanced.shellCommandPrefix": "& "
+}

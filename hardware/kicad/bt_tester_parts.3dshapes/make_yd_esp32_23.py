@@ -50,11 +50,11 @@ m.box("pcb", "pcb", -1.27, -1.5, PCB_Z, 26.67, 55.1, TOP)
 
 # ESP32-S3-WROOM-1: 18 x 25.5 mm, antenna overhangs the pin-1 end.
 m.box("wroom_pcb", "module", 12.7 - 9.0, -7.5, TOP, 12.7 + 9.0, 18.0, TOP + 0.8)
-m.box("wroom_can", "silver", 12.7 - 8.5, -0.6, TOP + 0.8, 12.7 + 8.5, 17.5, TOP + 3.1)
+m.box("wroom_can", "grey", 12.7 - 8.5, -0.6, TOP + 0.8, 12.7 + 8.5, 17.5, TOP + 3.1)
 
 # Two USB-C receptacles at the far end.
 for i, cx in enumerate((6.3, 19.1)):
-    m.box(f"usbc{i}", "silver", cx - 4.47, 48.2, TOP, cx + 4.47, 55.6, TOP + 3.26)
+    m.box(f"usbc{i}", "grey", cx - 4.47, 48.2, TOP, cx + 4.47, 55.6, TOP + 3.26)
 
 # RST / BOOT buttons.
 for name, cy in (("rst", 21.6), ("boot", 26.4)):
