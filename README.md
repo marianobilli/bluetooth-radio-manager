@@ -34,6 +34,7 @@ A carrier PCB that holds **four 2.4 GHz radios**, an **ESP32-S3 devkit**, and an
 | U1 | YD-ESP32-23 on 2 × 1×22 female headers | Controller, drives all four radios over one SPI bus |
 | J1 | UI module on 1×9 female header + 4 × M3 standoffs | 1.3" I²C OLED, EC11 encoder with push, BACK and CONFIRM buttons |
 | U2 | LD1117V33, TO-220, mounted flat (tab down) | Shared 3.3 V rail (`+3V3_RF`) for nRF24 slots, 800 mA |
+| D1 | 1N5819 Schottky, DO-41 | Feeds the devkit's 5 V pin from input A; blocks the devkit's USB power from back-feeding the radios |
 | JP1–JP4 | 1×3 pin header + jumper shunt | Selects each radio slot's supply: 5 V or 3.3 V |
 | C3–C6 | 220 µF / 10 V electrolytic | Bulk capacitor per radio slot, for TX current bursts |
 | C7–C10 | 100 nF ceramic | High-frequency decoupling per radio slot |
@@ -78,7 +79,9 @@ Each slot has its own 3-pin jumper (JP*n* powers M*n*). Fit **one** shunt per sl
 | Radio 3 CE / CSN / IRQ | IO17 / IO10 / IO18 | | CONFIRM button | IO21 |
 | Radio 4 CE / CSN / IRQ | IO40 / IO39 / IO41 | | BACK button | IO38 |
 
-The ESP32 devkit is powered from input A through its own 5 V pin. Its onboard 3.3 V regulator also supplies the UI module (`+3V3_SYS`).
+The ESP32 devkit is powered from input A through its own 5 V pin, via Schottky diode D1 (anode on `+5V_A`, cathode on the devkit). Its onboard 3.3 V regulator also supplies the UI module (`+3V3_SYS`).
+
+D1 is there for programming without a power bank. The devkit passes its USB VBUS out through its 5 V pin, so without D1 a PC's USB port would also be powering any E01 radio jumpered to `5V` on slots 1–2. With D1 the USB port feeds only the devkit, and in battery mode the devkit simply sees about 4.7 V instead of 5 V, which is fine for its onboard regulator. The radios still get the full 5 V, since D1 is only in the devkit branch.
 
 ### Power budget
 
