@@ -142,7 +142,7 @@ Upload the two files in **`case/print/`**. Both are 1:1 in millimetres. Order on
 
 | File | Part | Size (mm) |
 |------|------|-----------|
-| `enclosure_base.stl` or `.step` | Base: tray, board standoffs, USB-C openings, latch pockets, floor vents | 103.3 × 103.4 × 19.7 |
+| `enclosure_base.stl` or `.step` | Base: tray, board standoffs, USB-C openings labelled "5V POWER", latch pockets, floor vents | 103.3 × 103.4 × 19.7 |
 | `enclosure_lid.stl` or `.step` | Lid: deck with OLED window, encoder hole, flexure buttons, logo, latch tabs, SMA guides | 108.3 × 108.4 × 23.2 |
 
 The lid snaps onto the base with four flexible tabs that hook into pockets in the side walls, so the material has to tolerate about 1 mm of flex each time it's opened. The lid's extra 5 mm of length is the SMA guide ribs on the back wall.

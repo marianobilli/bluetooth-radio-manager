@@ -275,6 +275,12 @@ USB_SOCK_FLANGE_W, USB_SOCK_FLANGE_H = 15.7, 9.0  # oval flange on the outer fac
 USB_SOCK_FLANGE_T = 1.5         # flange thickness (not measured)
 USB_SOCK_RECESS = 0.0           # flange recess into the wall; 0 = flange proud
 USB_PORT_W, USB_PORT_H = 8.94, 3.26               # USB-C opening in the face
+# Label engraved into the front wall under each socket flange (flange bottom
+# at Z 2.0, base bottom at -5.0). Empty string for none.
+USB_SOCK_LABEL = "5V POWER"
+USB_SOCK_LABEL_SIZE = 2.6       # font size, mm; about 13.6 mm wide, inside the 15.7 flange
+USB_SOCK_LABEL_Z = -1.5         # text centre, Z absolute
+USB_SOCK_LABEL_DEPTH = 0.4      # 2 layers at 0.2 mm; wall is WALL = 2.4 thick
 
 
 # --- KiCad placement ------------------------------------------------------------
@@ -588,6 +594,13 @@ def build():
             recess = Plane(origin=(sx, oy0 + USB_SOCK_RECESS, USB_SOCK_Z), x_dir=(1, 0, 0),
                            z_dir=(0, -1, 0)) * SlotOverall(USB_SOCK_FLANGE_W, USB_SOCK_FLANGE_H)
             base -= extrude(recess, amount=USB_SOCK_RECESS + 1)
+        if USB_SOCK_LABEL:
+            # Plane on the outer face looking out (-Y): x right, Z up, so the
+            # text reads correctly from the front. Cut from inside the wall out.
+            face = Plane(origin=(sx, oy0 + USB_SOCK_LABEL_DEPTH, USB_SOCK_LABEL_Z),
+                         x_dir=(1, 0, 0), z_dir=(0, -1, 0))
+            label = face * Text(USB_SOCK_LABEL, USB_SOCK_LABEL_SIZE, align=(Align.CENTER, Align.CENTER))
+            base -= extrude(label, amount=USB_SOCK_LABEL_DEPTH + 0.01)
 
     # Logo in relief on the deck, centred over the radio area.
     logo_box = None                                  # X0, Y0, X1, Y1 on the deck
