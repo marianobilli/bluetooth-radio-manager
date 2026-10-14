@@ -1,6 +1,6 @@
 # Bluetooth Radio Manager
 
-A self-contained, battery-powered box that puts **four 2.4 GHz radios** under one **ESP32-S3**, with a small OLED and encoder UI, in a 3D-printed case. Each radio slot takes an nRF24L01+PA+LNA or an Ebyte E01-2G4M27D, and the firmware decides what the four radios do: range and interference tests, multi-channel sniffing, relays, mesh experiments, or anything else that needs several 2.4 GHz radios in one hand-held unit.
+A self-contained, battery-powered box that puts **four 2.4 GHz radios** under one **ESP32-S3**, with a small OLED and encoder UI, in a 3D-printed case. Each radio slot takes an nRF24L01+PA+LNA or an Ebyte E01-2G4M27D, and the firmware decides what the four radios do: range tests, multi-channel sniffing, relays, mesh experiments, or anything else that needs several 2.4 GHz radios in one hand-held unit.
 
 <p align="center">
   <img src="images/board-with-case.png" alt="The assembled radio manager in its 3D-printed enclosure: lid snapped on, USB-C power sockets in the front wall, four antennas out the back" width="620">
@@ -27,7 +27,7 @@ Everything is open: the KiCad board, the parametric case, the fab files and the 
 | **UI** | 1.3" I²C OLED, EC11 encoder with push, BACK and CONFIRM buttons, on a plug-in module |
 | **Power** | Two 5 V USB-C sockets in the case, one or two power banks, 3.5 to 10 h of continuous transmit |
 | **Board** | 96.5 × 73.2 mm, 2 layers, all through-hole and socketed, hand-solderable |
-| **Case** | Two-part 3D print, snap latches, vented, 103 × 104 × 26 mm, 41 mm to the top of the knob, antennas extra |
+| **Case** | Two-part 3D print, snap latches, vented, 103 × 103 × 26 mm, 41 mm to the top of the knob, antennas extra. One case fits either radio |
 | **Firmware** | PlatformIO, Arduino framework, native and on-device tests |
 
 The carrier board does only three things: power the radios correctly, wire them to one SPI bus with separate select and interrupt lines, and hold the modules so they can be swapped without tools. Everything else is firmware.
@@ -70,6 +70,8 @@ Both modules share the nRF24L01 2×4 pinout (GND, VCC, CE, CSN, SCK, MOSI, MISO,
 
 > **Warning:** a shunt on `5V` with an nRF24L01+PA+LNA fitted destroys the module. Check the jumpers before applying power. The silkscreen next to the jumpers repeats this.
 
+Mechanically the two differ: the nRF24 is 41 × 15.5 mm with its SMA jack standing on the board, the E01 is 33.2 × 18 mm with a 3.7 mm shield can and an edge-mount SMA at the board end. Both are modelled, and the board exists in two files that differ only in which module the sockets show: `bt_radio_manager.kicad_pcb` with nRF24s (the one to order from) and `bt_radio_manager_e01.kicad_pcb` with E01s, for checking the fit and seeing the finished product with each radio.
+
 ### Pin map
 
 | Function | GPIO | | Function | GPIO |
@@ -104,8 +106,10 @@ D1 matters when programming without a power bank: the devkit passes its USB VBUS
 | Path | Contents |
 |------|----------|
 | `hardware/kicad/bt_radio_manager.kicad_sch` / `.kicad_pcb` | KiCad 10 schematic and layout |
-| `hardware/kicad/bt_tester_parts.pretty/` | Custom footprints: radio socket, YD-ESP32-23, UI module |
-| `hardware/kicad/bt_tester_parts.3dshapes/` | STEP models and the Python scripts that generate them |
+| `hardware/kicad/bt_radio_manager_e01.kicad_pcb` | The same layout with the E01-2G4M27D in the radio sockets, for 3D viewing and the case check |
+| `hardware/kicad/bt_tester_parts.pretty/` | Custom footprints: radio socket (one each showing the nRF24 and the E01), YD-ESP32-23, UI module |
+| `hardware/kicad/bt_tester_parts.3dshapes/` | STEP models (nRF24L01+PA+LNA, E01-2G4M27D, antenna, devkit, UI module) and the Python scripts that generate them |
+| `docs/E01-2G4M27D_Usermanual_EN_v1.3.pdf` | E01 manual, source of its pinout and dimensions |
 
 ---
 
@@ -138,10 +142,10 @@ Upload the two files in **`case/print/`**. Both are 1:1 in millimetres. Order on
 
 | File | Part | Size (mm) |
 |------|------|-----------|
-| `enclosure_base.stl` or `.step` | Base: tray, board standoffs, USB-C openings, latch pockets, floor vents | 103.3 × 104.2 × 19.7 |
-| `enclosure_lid.stl` or `.step` | Lid: deck with OLED window, encoder hole, flexure buttons, logo, latch tabs | 108.3 × 104.2 × 23.2 |
+| `enclosure_base.stl` or `.step` | Base: tray, board standoffs, USB-C openings, latch pockets, floor vents | 103.3 × 103.4 × 19.7 |
+| `enclosure_lid.stl` or `.step` | Lid: deck with OLED window, encoder hole, flexure buttons, logo, latch tabs, SMA guides | 108.3 × 108.4 × 23.2 |
 
-The lid snaps onto the base with four flexible tabs that hook into pockets in the side walls, so the material has to tolerate about 1 mm of flex each time it's opened.
+The lid snaps onto the base with four flexible tabs that hook into pockets in the side walls, so the material has to tolerate about 1 mm of flex each time it's opened. The lid's extra 5 mm of length is the SMA guide ribs on the back wall.
 
 | Process and material | Verdict |
 |---|---|
@@ -156,7 +160,30 @@ The lid snaps onto the base with four flexible tabs that hook into pockets in th
 
 **Hardware to buy with it:** 4 × M3 heat-set inserts (3 mm long, 4.2 mm OD) and 4 × M3 × 6 screws for the board, and 2 × USB-C panel-mount power sockets with 2-wire pigtails (13 × 5.11 mm snap-in body, 15.7 × 9 mm oval flange) for the front wall.
 
-The case is generated by `case/enclosure.py` with [build123d](https://build123d.readthedocs.io/), reading part positions from the KiCad board, so it follows the layout. Running it rewrites `case/print/`, checks the case against every part on the board, and shows the assembly in the VS Code OCP CAD Viewer. Every dimension is a parameter at the top of the script.
+The case is generated by `case/enclosure.py` with [build123d](https://build123d.readthedocs.io/), reading part positions from the KiCad board, so it follows the layout. Running it rewrites `case/print/`, checks the case against every part on both board variants, and shows the assembly in the VS Code OCP CAD Viewer. Every dimension is a parameter at the top of the script.
+
+The same case takes either radio in any slot. The back wall sits just in front of the E01's SMA flange, so the longer nRF24's jack stands about 1 mm further out; the wall notches and support blocks are 18 mm wide for the E01 and the blocks are pocketed for its edge-mount SMA legs, and the deck clears the E01's shield can. Outside the wall, a pair of ribs on the lid straddles the square section of each SMA jack, which is the same width on both modules, so a module cannot swing sideways in its notch. Because of these ribs, take the lid off straight up by releasing the latches on both sides, rather than tilting it open on one side.
+
+<p align="center">
+  <img src="images/nrf-module-fit.png" alt="Lid shown translucent: four nRF24L01+PA+LNA modules through the back wall, SMA jacks and antennas outside" width="360">
+  <img src="images/e01-module-fit.png" alt="Lid shown translucent: four E01-2G4M27D modules with their shield cans under the deck, edge SMA jacks just outside the back wall" width="340">
+</p>
+<p align="center"><em>Left: nRF24L01+PA+LNA. Right: E01-2G4M27D. Same case, lid translucent to show the modules through the back wall and the guide ribs either side of each SMA jack.</em></p>
+
+**Viewing and regenerating the case.** You need KiCad 10 (the script calls `kicad-cli` from its default install path, set at the top of the script), Python 3 with `build123d` and `ocp_vscode`, and the *OCP CAD Viewer* extension in VS Code.
+
+```bash
+pip install build123d ocp_vscode
+```
+
+Open the OCP CAD Viewer panel in VS Code (Ctrl+K V), then run from the repository root:
+
+```bash
+python case/enclosure.py          # board with four nRF24L01+PA+LNA
+python case/enclosure.py e01      # board with four E01-2G4M27D
+```
+
+Each run exports the chosen board from KiCad to STEP, builds the case, prints the clearance check for both board variants and the part sizes, rewrites `case/print/` and `case/out/`, and sends the board, base, lid and USB sockets to the viewer. `case/out/assembly_<radio>.step` holds the complete product with that radio fitted, for any other CAD program. Without the viewer open the script still runs and only reports that it could not reach it. Set `LID_LIFT` in the script to show the lid raised above the base.
 
 ---
 
