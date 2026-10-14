@@ -3,7 +3,8 @@
 Run:    python case/enclosure.py
 View:   open the OCP CAD Viewer panel in VS Code (Ctrl+K V) before running;
         the PCB, base and lid (lifted) are sent to it at the end.
-Output: case/out/enclosure_base.{step,stl,3mf}, enclosure_lid.{...}
+Output: case/out/enclosure_base.{step,stl,3mf}, enclosure_lid.{...}, and the
+        STL + STEP of both parts again in case/print/ for upload to a print service.
 
 Coordinates are the KiCad STEP export: X = KiCad x, Y = -KiCad y, Z = 0 at the
 underside of the carrier PCB (board top at Z = 1.5). Part positions are read
@@ -69,7 +70,8 @@ GENERATED_MODELS = {                 # STEP child label -> (generator module, Mo
     "nRF24L01_PA_LNA": ("make_nrf24_pa_lna", "m", "M1"),
 }
 ANTENNA_MODEL = ("make_nrf24_pa_lna", "ant")   # rubber-duck antenna on each radio's SMA jack
-OUT = HERE / "out"
+OUT = HERE / "out"          # every format, for slicers and CAD (git-ignored)
+PRINT = HERE / "print"      # STL + STEP of the two printed parts, tracked, for ordering
 
 # --- Print / fit parameters (mm) ----------------------------------------------
 WALL = 2.4              # side walls (6 perimeters at 0.4 nozzle)
@@ -612,10 +614,12 @@ def check_clearance(pcb, base, lid, sockets=None):
 
 def export(base, lid):
     OUT.mkdir(exist_ok=True)
+    PRINT.mkdir(exist_ok=True)
     export_step(usb_socket_model(), str(OUT / "usb_socket_2pin.step"))
     for name, part in (("enclosure_base", base), ("enclosure_lid", lid)):
-        export_step(part, str(OUT / f"{name}.step"))
-        export_stl(part, str(OUT / f"{name}.stl"))
+        for folder in (OUT, PRINT):
+            export_step(part, str(folder / f"{name}.step"))
+            export_stl(part, str(folder / f"{name}.stl"))
         mesher = Mesher()
         mesher.add_shape(part)
         mesher.write(str(OUT / f"{name}.3mf"))
