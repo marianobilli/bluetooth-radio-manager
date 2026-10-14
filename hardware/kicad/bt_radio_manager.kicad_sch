@@ -2777,7 +2777,7 @@
 			(uuid "e3ebdab8-9801-4c77-8240-fe5613dc65ee")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "U1")
 					(unit 1)
@@ -3156,7 +3156,7 @@
 			(uuid "396ecdf1-4833-4377-a479-298af0ae1bc0")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "M1")
 					(unit 1)
@@ -3255,7 +3255,7 @@
 			(uuid "6ed8de6b-054a-4c7d-9f39-34239134ad09")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "M2")
 					(unit 1)
@@ -3354,7 +3354,7 @@
 			(uuid "77203a3c-81d9-435c-93e9-d9c0aef572a0")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "M3")
 					(unit 1)
@@ -3453,7 +3453,7 @@
 			(uuid "d191b5a7-b715-40d4-bd81-35fdc670e4e8")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "M4")
 					(unit 1)
@@ -3873,7 +3873,7 @@
 			(uuid "ad6e31f1-52d7-4cb3-a925-c500dfc9460b")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "J1")
 					(unit 1)
@@ -3952,7 +3952,7 @@
 			(uuid "2fe84872-29d7-4272-83f4-b3da06b0242b")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "J2")
 					(unit 1)
@@ -4031,7 +4031,7 @@
 			(uuid "de76e34d-1270-4c5f-bda5-8daa50b462e6")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "J3")
 					(unit 1)
@@ -4112,7 +4112,7 @@
 			(uuid "2713199c-77e0-43ba-bb45-f24ceb0cdac1")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "C1")
 					(unit 1)
@@ -4193,7 +4193,7 @@
 			(uuid "98fb64fe-1169-46ff-9eb4-ecc8637fee0b")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "C2")
 					(unit 1)
@@ -4274,7 +4274,7 @@
 			(uuid "4e8e60a7-8d0d-4244-a285-188fd213e99c")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "C3")
 					(unit 1)
@@ -4355,7 +4355,7 @@
 			(uuid "f029fc47-9402-4bcc-9a19-d7d81d92d90a")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "C4")
 					(unit 1)
@@ -4436,7 +4436,7 @@
 			(uuid "dd28e1cf-f07c-4a40-9b0a-e9f08647acf1")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "C5")
 					(unit 1)
@@ -4517,7 +4517,7 @@
 			(uuid "0e1c26f6-4bbe-4a5d-a96a-749f63a8d8a8")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "C6")
 					(unit 1)
@@ -4598,7 +4598,7 @@
 			(uuid "e65b10fa-496d-425e-9adf-dc4a94e28f10")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "C7")
 					(unit 1)
@@ -4679,7 +4679,7 @@
 			(uuid "a5156567-9d0c-4248-9aa4-b2f7d0a93d09")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "C8")
 					(unit 1)
@@ -4760,7 +4760,7 @@
 			(uuid "7c51f7cc-1171-4030-ab2a-95f2c3307d9b")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "C9")
 					(unit 1)
@@ -4841,7 +4841,7 @@
 			(uuid "f52b295e-9a33-4bc8-b8c9-279a8ec60a86")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "C10")
 					(unit 1)
@@ -5247,7 +5247,7 @@
 			(uuid "2d0891fc-2602-46e7-9e51-f72f4731d516")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "#FLG1")
 					(unit 1)
@@ -5323,7 +5323,7 @@
 			(uuid "848c5636-289b-46ab-8329-2ce62dae680d")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "#FLG2")
 					(unit 1)
@@ -5399,7 +5399,7 @@
 			(uuid "b935be9e-c4df-48ce-8f98-c2643cf06c12")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "#FLG3")
 					(unit 1)
@@ -5475,7 +5475,7 @@
 			(uuid "d69feece-b705-4b7c-be55-074438c70cf8")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "#FLG4")
 					(unit 1)
@@ -5551,7 +5551,7 @@
 			(uuid "d5ff8c28-1bc8-4071-bdb5-f627723611db")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "#FLG5")
 					(unit 1)
@@ -5627,7 +5627,7 @@
 			(uuid "3b31da49-1159-4be3-9867-4abea7d7c40e")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "#FLG6")
 					(unit 1)
@@ -5703,7 +5703,7 @@
 			(uuid "5eb59539-3713-4dc5-bd6b-4b7fbf5a895d")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "#FLG7")
 					(unit 1)
@@ -5779,7 +5779,7 @@
 			(uuid "80b13e36-e51a-45ff-a774-3d78f5083588")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "#FLG8")
 					(unit 1)
@@ -5950,7 +5950,7 @@
 			(uuid "f6bb7a18-68d9-4150-9636-5ae201cba363")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "U2")
 					(unit 1)
@@ -6031,7 +6031,7 @@
 			(uuid "7b7036a1-cf91-4dda-b06a-997e4a681d34")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "C11")
 					(unit 1)
@@ -6112,7 +6112,7 @@
 			(uuid "9a91e9a6-23ba-45cf-a3cf-983457acf78b")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "C12")
 					(unit 1)
@@ -6194,7 +6194,7 @@
 			(uuid "edc944f5-ae75-47f5-833c-b7856058a3ed")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "JP1")
 					(unit 1)
@@ -6276,7 +6276,7 @@
 			(uuid "48a84bbc-6ab1-42f4-94bd-5dd2e5c775b6")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "JP2")
 					(unit 1)
@@ -6358,7 +6358,7 @@
 			(uuid "42fb7753-27d6-456d-a0dd-710681841624")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "JP3")
 					(unit 1)
@@ -6440,7 +6440,7 @@
 			(uuid "0e01fb6d-dae1-4c66-98c4-fb5efeb2de44")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "JP4")
 					(unit 1)
@@ -6720,7 +6720,7 @@
 			(uuid "822f7845-4df8-424f-aa5c-5c4364c77ad2")
 		)
 		(instances
-			(project "bt_resiliency_tester"
+			(project "bt_radio_manager"
 				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
 					(reference "D1")
 					(unit 1)

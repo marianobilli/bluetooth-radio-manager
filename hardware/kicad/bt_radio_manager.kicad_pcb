@@ -8,7 +8,7 @@
 	)
 	(paper "A4")
 	(title_block
-		(title "bt_resiliency_tester")
+		(title "bt_radio_manager")
 	)
 	(layers
 		(0 "F.Cu" signal)

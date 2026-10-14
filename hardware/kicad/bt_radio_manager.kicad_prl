@@ -61,7 +61,7 @@
     "ssh_key": ""
   },
   "meta": {
-    "filename": "bt_resiliency_tester.kicad_prl",
+    "filename": "bt_radio_manager.kicad_prl",
     "version": 5
   },
   "net_inspector_panel": {
