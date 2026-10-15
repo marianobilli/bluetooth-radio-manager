@@ -19,8 +19,9 @@ from the .kicad_pcb, so moving a footprint in KiCad moves its cutout here.
 Layout:
   * base: tray with floor, M3 heat-set insert standoffs at the 4 mounting holes,
     walls up to just below the radio module PCBs (SPLIT_Z).
-  * lid: shallow cap whose deck sits just above the OLED and the E01 shield
-    can; a raised strip covers the taller ESP32 board. The radio module ends
+  * lid: shallow cap with a single flat deck, high enough to clear the ESP32
+    board and its USB bay, so the lid prints deck-down without supports; the
+    logo is engraved and the button pads are flush. The radio module ends
     pass through notches in the back wall so the SMA jacks are entirely
     outside the case: the wall is placed for the shorter E01, so the nRF24's
     jack stands a little further out. A pair of guide ribs outside the wall
@@ -158,15 +159,13 @@ ESP_TOP_PARTS = 17.4    # USB-C receptacles / WROOM can
 LID_GAP = 0.7           # air between tallest part and deck underside
 
 SPLIT_Z = NRF_PCB_BOTTOM - 0.3
-DECK_UNDER = max(UI_TOP_PARTS, E01_TOP_PARTS) + LID_GAP
-DECK_TOP = DECK_UNDER + DECK_T
 # ESP32 USB-C bay in the front wall. The receptacle faces stand only 0.5 mm
 # proud of the module PCB end and 1.0 mm proud of its header sockets, while
 # the carrier PCB edge and the case wall would put them 4.2 mm behind the
 # outer skin - there is no room for a wall in front of them. Instead the wall
-# is opened over the full module width from the base up to the strip deck,
+# is opened over the full module width from the base up to the deck,
 # the opening floor and side walls run inwards to the connector faces, and the
-# strip deck is raised so the opening clears a USB-C plug overmold (spec
+# deck is high enough that the opening clears a USB-C plug overmold (spec
 # maximum 12.35 x 6.5 mm, centred on the shell) with margin all round.
 ESP_PCB_X = (-1.27, 26.67)  # module PCB extents from pad 1, X
 ESP_PCB_END = 55.1          # module PCB far end from pad 1, towards the USB end
@@ -177,10 +176,13 @@ USB_BAY_OPEN_MARGIN = 2.3   # opening above / below the receptacle shells
 USB_BAY_FLOOR_T = 2.0
 USB_BAY_FLOOR_GAP = 0.6     # floor inner edge to the header sockets
 USB_BAY_SIDE_PAST = 1.0     # side walls reach this far past the module PCB end
-USB_BAY_SIDE_W = 1.6        # left side wall; also sets the strip's left wall
+USB_BAY_SIDE_W = 1.6        # left side wall of the bay
 
-PLAT_UNDER = max(ESP_TOP_PARTS + 0.5, USB_Z1 + USB_BAY_OPEN_MARGIN)
-PLAT_TOP = PLAT_UNDER + DECK_T
+# One flat deck over everything: the ESP32 / USB bay set its height, so the
+# lid's outer top is a single plane and it prints deck-down with no supports.
+DECK_UNDER = max(UI_TOP_PARTS + LID_GAP, E01_TOP_PARTS + LID_GAP,
+                 ESP_TOP_PARTS + 0.5, USB_Z1 + USB_BAY_OPEN_MARGIN)
+DECK_TOP = DECK_UNDER + DECK_T
 
 # Back wall sits just before the nearer of the two SMA jack bodies (the E01's,
 # at its board end); the nRF24's then stands 0.85 mm further out.
@@ -214,11 +216,11 @@ SMA_GUIDE_DEPTH = 5.0   # from the wall outer face; the nRF24 jack body spans 1.
 SMA_GUIDE_Z0 = NRF_PCB_TOP + 0.4    # KiCad exports the board 1.6 thick, 0.1 above these constants
 SMA_GUIDE_CHAMFER = 0.8
 
-# Goat logo in relief on the lid, over the radio area. Drop an SVG (filled
+# Goat logo engraved into the lid, over the radio area. Drop an SVG (filled
 # paths) at case/logo.svg; it is scaled to fit LOGO_MAX_W x LOGO_MAX_H.
 LOGO_SVG = HERE / "logo.svg"
 LOGO_MAX_W, LOGO_MAX_H = 70.0, 26.0
-LOGO_RELIEF = 0.8
+LOGO_DEPTH = 0.6        # 3 layers at 0.2 mm, leaves 1.0 of the 1.6 deck
 
 # Ventilation. Continuous TX on four E01 modules leaves about 6.5 W inside the
 # case, and the PA stages sit inside the back wall. Intake slots low in the
@@ -256,8 +258,6 @@ BTN_SLOT = 0.8
 BTN_TAB_T = 1.0         # tab thinned from below so it flexes
 BTN_NUB_D = 2.5
 BTN_PRESS_GAP = 0.15    # nub to switch plunger at rest
-BTN_CAP_D = 5.0         # raised finger pad on top
-BTN_CAP_H = 0.6
 SWITCH_PLUNGER_TOP = 16.3
 
 CABLE_NOTCH = False     # left-wall notch for JST leads leaving the case; off, the
@@ -469,14 +469,8 @@ def build():
     # ---- Lid --------------------------------------------------------------------
     bay_x0 = esp[0] + ESP_PCB_X[0] - USB_BAY_SIDE   # USB bay opening, X
     bay_x1 = esp[0] + ESP_PCB_X[1] + USB_BAY_SIDE
-    plat_x0 = bay_x0 - USB_BAY_SIDE_W      # strip inner wall = bay left wall
-    plat_y1 = esp[1] + 1.5 + 1.0           # ESP32 PCB top end plus margin
-    tall = rounded_prism(ox0, oy0, ox1, oy1, SPLIT_Z, PLAT_TOP + 1, CORNER_R)
-    outer = tall & (box(ox0, oy0, SPLIT_Z, ox1, oy1, DECK_TOP)
-                    + box(plat_x0 - WALL, oy0, SPLIT_Z, ox1, plat_y1 + WALL, PLAT_TOP))
-    cavity = (box(ix0, iy0, SPLIT_Z - 1, ix1, iy1, DECK_UNDER)
-              + box(plat_x0, iy0, SPLIT_Z - 1, ix1, plat_y1, PLAT_UNDER))
-    lid = outer - cavity
+    outer = rounded_prism(ox0, oy0, ox1, oy1, SPLIT_Z, DECK_TOP, CORNER_R)
+    lid = outer - box(ix0, iy0, SPLIT_Z - 1, ix1, iy1, DECK_UNDER)
     # Snap latches: tab plate on the lid's outer wall running LATCH_L below the
     # split, hook with a 45 degree lead-in at its bottom, pocket in the base.
     z_bot = SPLIT_Z - LATCH_L
@@ -531,8 +525,6 @@ def build():
         nub_bot = SWITCH_PLUNGER_TOP + BTN_PRESS_GAP
         lid += Pos(bx, by, nub_bot) * Cylinder(BTN_NUB_D / 2, DECK_TOP - BTN_TAB_T - nub_bot + 0.01,
                                                 align=(Align.CENTER, Align.CENTER, Align.MIN))
-        lid += Pos(bx, by, DECK_TOP - 0.01) * Cylinder(BTN_CAP_D / 2, BTN_CAP_H,
-                                                        align=(Align.CENTER, Align.CENTER, Align.MIN))
 
     # Back wall: the radio module ends pass through it. The base carries each
     # module on a support block; the lid wall is notched over the module and
@@ -565,7 +557,7 @@ def build():
     # Front wall: USB bay for both USB-C ports of the ESP32. The floor (base)
     # and the side walls (base up to the lip, lid above it) start inside the
     # front wall so they fuse with it, then the opening is cut through
-    # everything out to beyond the connector faces. The strip deck is the roof.
+    # everything out to beyond the connector faces. The deck is the roof.
     bay_z0 = USB_Z0 - USB_BAY_OPEN_MARGIN
     bay_floor_in = esp[1] - ESP_SOCKET_END - USB_BAY_FLOOR_GAP
     bay_side_in = esp[1] - ESP_PCB_END + USB_BAY_SIDE_PAST
@@ -574,9 +566,9 @@ def build():
     base += shelf(bay_x0, bay_x1, iy0, join_y, bay_floor_in, bay_z0, bay_bot)
     for sx0, sx1 in ((bay_x0 - USB_BAY_SIDE_W, bay_x0), (bay_x1, ix1 + 0.2)):
         base += shelf(sx0, sx1, iy0, join_y, bay_side_in, SPLIT_Z + LIP_H, bay_bot)
-        lid += box(sx0, join_y, SPLIT_Z + LIP_H + LIP_FIT, sx1, bay_side_in, PLAT_UNDER + 0.01)
+        lid += box(sx0, join_y, SPLIT_Z + LIP_H + LIP_FIT, sx1, bay_side_in, DECK_UNDER + 0.01)
     base -= box(bay_x0, oy0 - 1, bay_z0, bay_x1, bay_side_in, SPLIT_Z + LIP_H + 1)
-    lid -= box(bay_x0, oy0 - 1, SPLIT_Z - 1, bay_x1, bay_side_in, PLAT_UNDER)
+    lid -= box(bay_x0, oy0 - 1, SPLIT_Z - 1, bay_x1, bay_side_in, DECK_UNDER)
 
     # Left wall: optional notch for JST power leads leaving the case (J2/J3).
     if CABLE_NOTCH:
@@ -602,7 +594,8 @@ def build():
             label = face * Text(USB_SOCK_LABEL, USB_SOCK_LABEL_SIZE, align=(Align.CENTER, Align.CENTER))
             base -= extrude(label, amount=USB_SOCK_LABEL_DEPTH + 0.01)
 
-    # Logo in relief on the deck, centred over the radio area.
+    # Logo engraved into the deck, centred over the radio area. It sits on the
+    # bed when the lid prints deck-down, so it needs no support either.
     logo_box = None                                  # X0, Y0, X1, Y1 on the deck
     if LOGO_SVG.exists():
         logo = Compound(import_svg(str(LOGO_SVG)))
@@ -612,8 +605,8 @@ def build():
         lb = logo.bounding_box()
         lx = (ix0 + ix1) / 2
         ly = (fp["J1"][1] + 1.93 + iy1) / 2          # between UI module top edge and back wall
-        logo = Pos(lx - lb.center().X, ly - lb.center().Y, DECK_TOP - 0.01) * logo
-        lid += extrude(logo, amount=LOGO_RELIEF + 0.01)
+        logo = Pos(lx - lb.center().X, ly - lb.center().Y, DECK_TOP - LOGO_DEPTH) * logo
+        lid -= extrude(logo, amount=LOGO_DEPTH + 0.01)
         logo_box = (lx - lb.size.X / 2, ly - lb.size.Y / 2, lx + lb.size.X / 2, ly + lb.size.Y / 2)
 
     if VENT:

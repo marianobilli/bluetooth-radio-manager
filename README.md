@@ -143,7 +143,7 @@ Upload the two files in **`case/print/`**. Both are 1:1 in millimetres. Order on
 | File | Part | Size (mm) |
 |------|------|-----------|
 | `enclosure_base.stl` or `.step` | Base: tray, board standoffs, USB-C openings labelled "5V POWER", latch pockets, floor vents | 103.3 × 103.4 × 19.7 |
-| `enclosure_lid.stl` or `.step` | Lid: deck with OLED window, encoder hole, flexure buttons, logo, latch tabs, SMA guides | 108.3 × 108.4 × 23.2 |
+| `enclosure_lid.stl` or `.step` | Lid: flat deck with OLED window, encoder hole, flush flexure buttons, engraved logo, latch tabs, SMA guides | 108.3 × 108.4 × 23.2 |
 
 The lid snaps onto the base with four flexible tabs that hook into pockets in the side walls, so the material has to tolerate about 1 mm of flex each time it's opened. The lid's extra 5 mm of length is the SMA guide ribs on the back wall.
 
@@ -156,7 +156,7 @@ The lid snaps onto the base with four flexible tabs that hook into pockets in th
 
 **Parameters to request:** PA12 nylon (or PETG on FDM), any colour, standard tolerance (±0.2 mm or ±0.3 %), no smoothing. Walls are 2.4 mm, floor 2.0, deck 1.6, latch tabs 1.4, all above the usual 1 mm minimum. Density is not applicable to nylon; 20 to 30 % infill on FDM.
 
-**FDM settings:** 0.2 mm layers with a 0.4 mm nozzle, base floor-down and lid deck-down, no supports, **4 perimeters** so the latch tabs and walls are solid, seams away from the tabs.
+**FDM settings:** 0.2 mm layers with a 0.4 mm nozzle, base floor-down and lid upside down (deck on the bed; its top is one flat plane), no supports on either part, **4 perimeters** so the latch tabs and walls are solid. Put the seam on the narrow 1.4 mm edges of the four latch tabs, not their flat faces, and not on "random".
 
 **Hardware to buy with it:** 4 × M3 heat-set inserts (3 mm long, 4.2 mm OD) and 4 × M3 × 6 screws for the board, and 2 × USB-C panel-mount power sockets with 2-wire pigtails (13 × 5.11 mm snap-in body, 15.7 × 9 mm oval flange) for the front wall.
 
