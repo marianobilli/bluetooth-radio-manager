@@ -25,7 +25,7 @@ Everything is open: the KiCad board, the parametric case, the fab files and the 
 | **Radios** | 4 slots, 2×4 socket each, nRF24L01+PA+LNA or E01-2G4M27D, SMA antennas out the back |
 | **Controller** | YD-ESP32-23 (ESP32-S3 DevKitC-1 clone, 16 MB flash, 8 MB PSRAM), socketed |
 | **UI** | 1.3" I²C OLED, EC11 encoder with push, BACK and CONFIRM buttons, on a plug-in module |
-| **Power** | Two 5 V USB-C sockets in the case, one or two power banks, 3.5 to 10 h of continuous transmit |
+| **Power** | Two 5 V USB-C sockets in the case: one supply of 2 A or more, or two smaller power banks. 3.5 to 10 h of continuous transmit |
 | **Board** | 96.5 × 73.2 mm, 2 layers, all through-hole and socketed, hand-solderable |
 | **Case** | Two-part 3D print, snap latches, vented, 103 × 103 × 26 mm, 41 mm to the top of the knob, antennas extra. One case fits either radio |
 | **Firmware** | PlatformIO, Arduino framework, native and on-device tests |
@@ -49,6 +49,7 @@ The carrier board does only three things: power the radios correctly, wire them 
 | J1 | UI module on 1×9 female header + 4 × M3 standoffs | OLED, encoder, BACK and CONFIRM buttons |
 | U2 | LD1117V33, TO-220, mounted flat | Shared 3.3 V rail for nRF24 slots, 800 mA |
 | D1 | 1N5819 Schottky, DO-41 | Feeds the devkit from input A and stops its USB power reaching the radios |
+| D2, D3 | SB240 Schottky (40 V, 2 A), DO-15 | Cross-feed between inputs A and B, so one supply can power the whole board |
 | JP1–JP4 | 1×3 pin header + shunt | Radio slot supply select, 5 V or 3.3 V |
 | C3–C6 | 220 µF / 10 V electrolytic | Bulk capacitor per radio slot, for TX bursts |
 | C7–C10 | 100 nF ceramic | Decoupling per radio slot |
@@ -84,7 +85,11 @@ Mechanically the two differ: the nRF24 is 41 × 15.5 mm with its SMA jack standi
 
 ### Power
 
-Input A feeds the ESP32 (through D1) and radio slots 1–2; input B feeds slots 3–4 and the 3.3 V regulator. Splitting the load keeps each power-bank port under about 1 A and keeps the ESP32's supply separate from the regulator feeding the nRF24s. The devkit's own 3.3 V regulator supplies the UI module.
+Input A feeds the ESP32 (through D1) and radio slots 1–2; input B feeds slots 3–4 and the 3.3 V regulator. The devkit's own 3.3 V regulator supplies the UI module. D2 and D3 join the two rails in opposite directions, so the board runs from one supply or from two:
+
+- **Two supplies, one per socket.** Each rail runs from its own input, and the diodes stay off while the two inputs are within about 0.3 V of each other. Each power-bank port then carries about 1 A at most.
+- **One supply.** Plug it into input A, the socket wired to J2; the silkscreen says "1 SUPPLY: J2". Rail B is then fed through D2 and sits about 0.45 V lower, around 4.5 V, which the E01s and the LD1117 both accept. Input B alone also works, but the devkit then sees two diode drops, about 4.2 V on its 5 V pin.
+- **Sizing a single supply.** It carries the whole load, about 1.9 A with four E01s transmitting. Use a 5 V 3 A USB-C adapter or a power-bank port rated 2.4 A or more.
 
 D1 matters when programming without a power bank: the devkit passes its USB VBUS out through its 5 V pin, so without the diode a PC port would also be powering any E01 jumpered to 5 V on slots 1–2. With it the PC feeds only the devkit.
 
@@ -99,7 +104,7 @@ D1 matters when programming without a power bank: the devkit passes its USB VBUS
 - **A linear regulator, not a buck.** PA/LNA radios amplify supply noise. The LD1117 has no switching ripple and dissipates at most 0.8 W, fine for a TO-220 without a heatsink.
 - **Decoupling at every slot**, 220 µF + 100 nF next to each socket for 490 mA TX bursts, 470 µF on each input for cable and power-bank response.
 - **Space under the modules.** The devkit and UI module sit 11 mm above the board. U2 lies flat under the OLED, and a mounting hole sits under the devkit's USB end where plug insertion pushes hardest.
-- **Routing.** GND pour on both layers. Power nets 0.6 mm, signals 0.2 mm, 14 vias. The SPI bus is shared, each radio has its own CE, CSN and IRQ.
+- **Routing.** GND pour on both layers. Power nets 0.6 to 1.0 mm, with 1.0 mm from each input to the cross-feed diodes, which carry the whole load on a single supply. Signals 0.2 mm, 14 vias. The SPI bus is shared, each radio has its own CE, CSN and IRQ.
 
 ### Design files
 
@@ -127,7 +132,7 @@ Upload **`hardware/kicad/bt_radio_manager_gerbers.zip`**. It holds the nine Gerb
 | Solder mask | any colour, both sides |
 | Silkscreen | both sides, white. The back carries the logo and the version mark |
 | Min track / clearance | 0.2 mm / 0.2 mm |
-| Min hole | 0.3 mm (vias), plated. Largest 1.1 mm. Two NPTH sizes for the mounting holes |
+| Min hole | 0.3 mm (vias), plated. Largest 1.2 mm. Two NPTH sizes for the mounting holes |
 | Via | 0.6 mm pad, 0.3 mm drill |
 | Castellations, impedance control, stencil, assembly | none needed, everything is through-hole and hand-soldered |
 | Quantity | 5 is the usual minimum |

@@ -6748,6 +6748,215 @@
 		)
 		(uuid "3e064820-5420-4aac-bf57-10131973f408")
 	)
+	(symbol
+		(lib_id "Device:D_Schottky")
+		(at 260.35 189.23 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "550a5ea5-caaa-4ac8-9df8-1da87750ab47")
+		(property "Reference" "D2"
+			(at 262.89 189.23 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SB240"
+			(at 257.81 189.23 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Diode_THT:D_DO-15_P10.16mm_Horizontal"
+			(at 260.35 189.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 260.35 189.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Schottky diode, 40 V 2 A"
+			(at 260.35 189.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f5562907-c6af-4116-b467-e3a7d7216887")
+		)
+		(pin "2"
+			(uuid "eaca3d7e-44e7-44ba-97b3-d684bf762384")
+		)
+		(instances
+			(project "bt_radio_manager"
+				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
+					(reference "D2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(global_label "+5V_A"
+		(at 260.35 185.42 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "6514edea-6387-47f7-b25a-bc176fdea5f9")
+	)
+	(global_label "+5V_B"
+		(at 260.35 193.04 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "959ba128-f6c6-4f4a-9593-76489f444948")
+	)
+	(symbol
+		(lib_id "Device:D_Schottky")
+		(at 279.4 189.23 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "c45a5bbb-135a-49dd-8fbf-a13a8e3eac0e")
+		(property "Reference" "D3"
+			(at 281.94 189.23 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SB240"
+			(at 276.86 189.23 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Diode_THT:D_DO-15_P10.16mm_Horizontal"
+			(at 279.4 189.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 279.4 189.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Schottky diode, 40 V 2 A"
+			(at 279.4 189.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "8c45aa4b-ea5b-44df-bc52-17cff795e991")
+		)
+		(pin "2"
+			(uuid "7b5a8e4b-b21b-4a12-841a-03fda094574d")
+		)
+		(instances
+			(project "bt_radio_manager"
+				(path "/759d86e3-0625-40b8-a3e4-c4e2bfc9e187"
+					(reference "D3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(global_label "+5V_B"
+		(at 279.4 185.42 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "9e5d518f-d241-4d7c-8ec3-d77e329379ca")
+	)
+	(global_label "+5V_A"
+		(at 279.4 193.04 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "5919fc72-7c31-4167-a196-767d90469141")
+	)
+	(text "Supply cross-feed: D2 (5V_A -> 5V_B) and D3 (5V_B -> 5V_A).\nTwo sources: each rail runs from its own input, the diodes stay off\n  while the inputs are within about 0.3 V of each other.\nOne source (either input): the other rail is fed through a diode,\n  about 0.35 V lower. Input A is preferred: the devkit then sees one drop, not two."
+		(exclude_from_sim no)
+		(at 248.92 205.74 0)
+		(effects
+			(font
+				(size 1.5 1.5)
+			)
+			(justify left bottom)
+		)
+		(uuid "b7ace5a1-8a19-4039-b205-d685f73758a5")
+	)
 	(sheet_instances
 		(path "/"
 			(page "1")
