@@ -484,6 +484,10 @@ def build():
             xt_out = xt_in - d * LATCH_T
             xi = xt_in + d * (LATCH_GAP + LATCH_HOOK_D)   # hook tip
             lid += box(min(xt_in, xt_out), y0, z_bot, max(xt_in, xt_out), y1, DECK_TOP)
+            # Root the tab: above the split, fill LATCH_GAP back into the lid
+            # wall, or the tab is a separate solid floating beside it.
+            xr = xw + d * 1.0
+            lid += box(min(xt_in, xr), y0, SPLIT_Z, max(xt_in, xr), y1, DECK_TOP)
             hook = [(xt_in, z_bot), (xi, z_ramp), (xi, z_top), (xt_in, z_top)]
             prof = Plane(origin=(0, y0, 0), x_dir=(1, 0, 0), z_dir=(0, -1, 0)) * Polygon(*hook, align=None)
             lid += extrude(prof, amount=LATCH_W, dir=(0, 1, 0))
